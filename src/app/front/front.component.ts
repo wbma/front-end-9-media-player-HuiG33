@@ -21,8 +21,8 @@ export class FrontComponent implements OnInit {
         console.log(error);
         this.router.navigate(['login']);
       });
-    }
-    else
+    } else {
       this.router.navigate(['login']);
+    }
   }
 }
