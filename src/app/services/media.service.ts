@@ -10,6 +10,7 @@ export class MediaService {
   status: string;
 
   apiUrl = 'http://media.mw.metropolia.fi/wbma';
+  mediaUrl = 'http://media.mw.metropolia.fi/wbma/uploads/';
 
   constructor(private http: HttpClient, private router: Router) {
   }
@@ -56,5 +57,9 @@ export class MediaService {
         localStorage.getItem('token')),
     };
     return this.http.post(this.apiUrl + '/media', formData, settings);
+  }
+
+  getNewFiles() {
+    return this.http.get(this.apiUrl + '/media?start=2&limit=10');
   }
 }

@@ -1,1 +1,9 @@
-<div>Display this content when logged in.</div>
+<!--<div>Display this content when logged in.</div>
+<div *ngFor="let file of fileArray">
+  <img [src]="mediaService.mediaUrl + file.thumbnail" [alt]="file.title">
+</div>
+-->
+<div *ngFor="let file of fileArray">
+  <img [alt]="file?.title" [src]="mediaService.mediaUrl + (file?.filename | thumbnail: 'small')">
+  <!-- should transform: SOMEIMAGE.jpg => SOMEIMAGE-tn160.png -->
+</div>

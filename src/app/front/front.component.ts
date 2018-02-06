@@ -10,6 +10,8 @@ import {HttpErrorResponse} from '@angular/common/http';
 })
 export class FrontComponent implements OnInit {
 
+  fileArray: any;
+
   constructor(private mediaService: MediaService, private router: Router) {
   }
 
@@ -24,5 +26,17 @@ export class FrontComponent implements OnInit {
     } else {
       this.router.navigate(['login']);
     }
+    // get media stuff
+    this.mediaService.getNewFiles().subscribe(data => {
+      console.log(data);
+      this.fileArray = data;
+
+      this.fileArray.map(media => {
+        const temp = media.filename.split('.');
+        const thumbName = temp[0] + '-tn320.png';
+        media.thumbnail = thumbName;
+      });
+      console.log(this.fileArray);
+    });
   }
 }
