@@ -40,4 +40,3 @@ export class FrontComponent implements OnInit {
     });
   }
 }
-//test

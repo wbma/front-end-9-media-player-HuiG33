@@ -60,6 +60,30 @@ export class MediaService {
   }
 
   getNewFiles() {
-    return this.http.get(this.apiUrl + '/media?start=2&limit=10');
+    return this.http.get(this.apiUrl + '/media?start=&limit=10');
+  }
+
+  getOneFile() {
+    return this.http.get(this.apiUrl + '/media?start=&limit=1');
+  }
+
+  postingUser(id) {
+    const settings = {
+      headers: new HttpHeaders().set('x-access-token',
+        localStorage.getItem('token')),
+    };
+    return this.http.get(this.apiUrl + '/users/:id', settings);
+  }
+
+  getLikes(id) {
+    return this.http.get(this.apiUrl + '/favourites/file/:id', id);
+  }
+
+  likedByUser() {
+    const settings = {
+      headers: new HttpHeaders().set('x-access-token',
+        localStorage.getItem('token')),
+    };
+    return this.http.get(this.apiUrl + '/favourites', settings);
   }
 }
