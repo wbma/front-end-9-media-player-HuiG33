@@ -31,11 +31,11 @@ export class FrontComponent implements OnInit {
       console.log(data);
       this.fileArray = data;
 
-      this.fileArray.map(media => {
+      /*this.fileArray.map(media => {
         const temp = media.filename.split('.');
         const thumbName = temp[0] + '-tn320.png';
         media.thumbnail = thumbName;
-      });
+      });*/
       console.log(this.fileArray);
     });
   }

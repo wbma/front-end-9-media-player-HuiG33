@@ -67,16 +67,16 @@ export class MediaService {
     return this.http.get(this.apiUrl + '/media?start=&limit=1');
   }
 
-  postingUser(id) {
+  getUser(id) {
     const settings = {
       headers: new HttpHeaders().set('x-access-token',
         localStorage.getItem('token')),
     };
-    return this.http.get(this.apiUrl + '/users/:id', settings);
+    return this.http.get(this.apiUrl + '/users/' + id, settings);
   }
 
   getLikes(id) {
-    return this.http.get(this.apiUrl + '/favourites/file/:id', id);
+    return this.http.get(this.apiUrl + '/favourites/file/' + id);
   }
 
   likedByUser() {
